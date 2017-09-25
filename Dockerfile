@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-MAINTAINER Efa-GmbH <team@efa-gmbh.com>
 
 # Copy installation scripts in
 COPY *.sh ./
@@ -17,15 +16,8 @@ RUN ./usrsctp.sh
 # Install websocket dependencies
 RUN ./websockets.sh
 
-# Copy the apache configuration files ready for when we need them
-COPY apache2/*.conf ./
-# Install and prepare apache
-RUN ./apache.sh
-
 # Clone, build and install the gateway
 RUN ./janus.sh
-# Put configs in place
-COPY conf/*.cfg /opt/janus/etc/janus/
 
 # Declare the ports we use
 EXPOSE 80 7088 8088 8188

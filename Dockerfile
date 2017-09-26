@@ -7,8 +7,6 @@ COPY *.sh ./
 RUN ./setup.sh
 # Install dependencies
 RUN ./dependencies.sh
-# Install extras
-RUN ./extras.sh
 # Install libsrtp 2.0.0 (To reduce risk of broken interoperability with future WebRTC versions)
 RUN ./libsrtp.sh
 # Install usrsctp for data channel support
@@ -20,7 +18,7 @@ RUN ./websockets.sh
 RUN ./janus.sh
 
 # Declare the ports we use
-EXPOSE 80 7088 8088 8188
+EXPOSE 8188 5000
 
 # Define the default start-up command
 CMD ./startup.sh

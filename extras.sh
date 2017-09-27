@@ -1,1 +1,1 @@
-apt-get install -y make git cmake
+apt-get install -y sudo make git cmake
